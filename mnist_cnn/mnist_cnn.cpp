@@ -142,7 +142,7 @@ int main()
 
   model.InputDimensions() = vector<size_t>({ 28, 28 });
 
-  cout << "Start training ..." << endl;
+  // cout << "Start training ..." << endl;
 
   // Set parameters for the Adam optimizer.
   ens::Adam optimizer(
@@ -174,26 +174,26 @@ int main()
   //                   return validationLoss;
   //                 }));
 
-  // Matrix to store the predictions on train and validation datasets.
+  // // Matrix to store the predictions on train and validation datasets.
   mat predOut;
-  // Get predictions on training data points.
-  model.Predict(trainX, predOut);
-  // Calculate accuracy on training data points.
+  // // Get predictions on training data points.
+  // model.Predict(trainX, predOut);
+  // // Calculate accuracy on training data points.
   Row<size_t> predLabels = getLabels(predOut);
-  double trainAccuracy =
-      accu(predLabels == trainY) / (double) trainY.n_elem * 100;
+  // double trainAccuracy =
+  //     accu(predLabels == trainY) / (double) trainY.n_elem * 100;
 
-  // Get predictions on validation data points.
-  model.Predict(validX, predOut);
-  predLabels = getLabels(predOut);
-  // Calculate accuracy on validation data points.
-  double validAccuracy =
-      accu(predLabels == validY) / (double) validY.n_elem * 100;
+  // // Get predictions on validation data points.
+  // model.Predict(validX, predOut);
+  // predLabels = getLabels(predOut);
+  // // Calculate accuracy on validation data points.
+  // double validAccuracy =
+  //     accu(predLabels == validY) / (double) validY.n_elem * 100;
 
-  cout << "Accuracy: train = " << trainAccuracy << "%,"
-            << "\t valid = " << validAccuracy << "%" << endl;
+  // cout << "Accuracy: train = " << trainAccuracy << "%,"
+  //           << "\t valid = " << validAccuracy << "%" << endl;
 
-  data::Save("model.bin", "model", model, false);
+  // data::Save("model.bin", "model", model, false);
 
   cout << "Predicting on test set..." << endl;
 
