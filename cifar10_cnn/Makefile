@@ -2,10 +2,10 @@ TARGET := cifar_train
 TARGET1 := cifar_eval
 SRC := cifar_train.cpp
 SRC1 := cifar_eval.cpp
-LIBS_NAME := armadillo
+# LIBS_NAME := armadillo
 
 CXX := g++
-CXXFLAGS := -std=c++14 -Wall -g -rdynamic -Wextra -O3 -DNDEBUG -fopenmp
+CXXFLAGS += -std=c++14 -Wall -g -rdynamic -Wextra -O3 -DNDEBUG -fopenmp
 
 LDFLAGS := -fopenmp
 
@@ -18,7 +18,8 @@ CXXFLAGS += $(INCLFLAGS)
 
 OBJS := $(SRC:.cpp=.o)
 OBJS1 := $(SRC1:.cpp=.o)
-LIBS := $(addprefix -l, $(LIBS_NAME))
+# LIBS := $(addprefix -l, $(LIBS_NAME))
+LIBS := /usr/lib/aarch64-linux-gnu/openblas-pthread/libopenblas.a
 CLEAN_LIST := $(TARGET) $(OBJS) $(TARGET1) $(OBJS1)
 
 default: all

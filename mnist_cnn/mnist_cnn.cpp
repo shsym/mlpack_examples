@@ -201,6 +201,7 @@ int main()
   // The original file could be download from
   // https://www.kaggle.com/c/digit-recognizer/data
   data::Load("../data/mnist_test.csv", dataset, true);
+  cout << "Date loaded" << endl;
   const mat testX = dataset.submat(1, 0, dataset.n_rows - 1, dataset.n_cols - 1)
       / 256.0;
   const mat testY = dataset.row(0);
