@@ -25,7 +25,8 @@ INCLFLAGS := -I .
 CXXFLAGS  += $(INCLFLAGS)
 
 OBJS := $(SRC:.cpp=.o)
-LIBS := $(addprefix -l,$(LIBS_NAME))
+# LIBS := $(addprefix -l,$(LIBS_NAME))
+LIBS := /usr/lib/aarch64-linux-gnu/openblas-pthread/libopenblas.a
 CLEAN_LIST := $(TARGET) $(OBJS)
 
 # default rule
