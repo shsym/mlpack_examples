@@ -159,20 +159,20 @@ int main()
   // Train the CNN model. If this is the first iteration, weights are
   // randomly initialized between -1 and 1. Otherwise, the values of weights
   // from the previous iteration are used.
-  model.Train(trainX,
-              trainY,
-              optimizer,
-              ens::PrintLoss(),
-              ens::ProgressBar(),
-              // Stop the training using Early Stop at min loss.
-              ens::EarlyStopAtMinLoss(
-                  [&](const arma::mat& /* param */)
-                  {
-                    double validationLoss = model.Evaluate(validX, validY);
-                    cout << "Validation loss: " << validationLoss << "."
-                        << endl;
-                    return validationLoss;
-                  }));
+  // model.Train(trainX,
+  //             trainY,
+  //             optimizer,
+  //             ens::PrintLoss(),
+  //             ens::ProgressBar(),
+  //             // Stop the training using Early Stop at min loss.
+  //             ens::EarlyStopAtMinLoss(
+  //                 [&](const arma::mat& /* param */)
+  //                 {
+  //                   double validationLoss = model.Evaluate(validX, validY);
+  //                   cout << "Validation loss: " << validationLoss << "."
+  //                       << endl;
+  //                   return validationLoss;
+  //                 }));
 
   // Matrix to store the predictions on train and validation datasets.
   mat predOut;
